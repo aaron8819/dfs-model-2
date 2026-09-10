@@ -16,7 +16,7 @@ jobs:
   verify:
     if: github.repository == 'aaron8819/dfs-model-2' && github.event.repository.private && inputs.allowance_confirmed
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -29,12 +29,13 @@ jobs:
           node-version: '24.21.0'
       - name: Execute canonical native procedure
         run: bash tools/amd64_verify.sh
-        timeout-minutes: 53
+        timeout-minutes: 15
       - name: Collect allowlisted diagnostics even after failure
+        id: evidence
         if: always()
         run: python -m tools.amd64_evidence collect
       - name: Retain reviewed evidence for one day
-        if: always()
+        if: always() && steps.evidence.outcome == 'success'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: amd64-evidence-${{ github.run_id }}-${{ github.run_attempt }}

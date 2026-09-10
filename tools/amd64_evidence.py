@@ -161,8 +161,8 @@ def collect() -> None:
             diagnostics[name] = {"state": "not available"}
     (destination / "container-states.json").write_text(json.dumps(diagnostics, indent=2) + "\n")
     assert (
-        sum(p.stat().st_size for p in destination.iterdir()) <= 20 * 1024 * 1024
-    ), "Artifact exceeds 20 MiB budget"
+        sum(p.stat().st_size for p in destination.iterdir()) <= 19 * 1024 * 1024
+    ), "Artifact exceeds 19 MiB per-attempt budget"
 
 
 def main() -> None:

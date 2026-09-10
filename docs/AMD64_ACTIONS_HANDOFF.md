@@ -10,18 +10,17 @@ destination. In particular, the existing public `DFS-optimizer` is unrelated and
 receive this code. Created `aaron8819/dfs-model-2` under that authorization; API confirmed private visibility
 and personal owner `aaron8819` (`User`).
 
-The user billing usage API returned HTTP 404 and explicitly reported that the current OAuth
-token needs the `user` scope. Account metadata did not expose a plan. No credential was
-printed, scope changed, billing changed, or paid runner selected. **Remaining included
-minutes and artifact storage are unknown; dispatch is blocked until established.**
+The user confirmed from the personal billing dashboard that 2,000 included Actions minutes
+and 0.5 GB included storage were available before dispatch. This confirmation supersedes
+the earlier API limitation (missing `user` scope); no scope or billing changes were made.
 
-Budget: one manually dispatched standard Linux job, 60 minutes maximum, with the procedure
-limited to 53 minutes to leave setup/diagnostic/upload time. Reserve **60 included Linux
-minutes and 20 MiB of available included artifact storage for one day** for the first run.
-At most two further manually reviewed attempts may follow, only after rechecking remaining
-allowance; total task ceiling 180 runner minutes and 60 MiB retained artifacts. No automatic
-retry, scheduled trigger, cache upload, registry upload or deployment. A failed attempt's
-evidence must be downloaded before its one-day expiry. No elapsed-time estimate is a pass.
+The current task has a **total ceiling of 60 Linux runner minutes and 20 MiB of artifacts
+retained for one day**, including any corrected attempts. The earlier 180-minute/60-MiB
+planning ceiling is superseded. No paid overage, deployment, automatic retry, cache upload,
+registry publication or live outage drill is authorized. Before any further attempt,
+subtract completed job time (rounded up to runner minutes) and set its timeout within the
+remaining total. Download and inspect each attempt's evidence before expiry. Retained
+artifact sizes across attempts must remain below 20 MiB.
 
 Official documentation checked September 10, 2026:
 
@@ -83,9 +82,10 @@ API/native-child/Apply and resource/restart tools, runs three browser scenarios,
 production identity rejection, unsafe schema/grants and unreachable-endpoint handlers.
 Normal browser workflow uses explicit development synthetic OIDC. No production secrets.
 
-Two historical-data tests are explicitly deselected in both applicable regression commands:
+Three historical-data tests are explicitly deselected in both applicable regression commands:
 `application_test.py::test_historical_import_through_postgres` and
-`completion_test.py::test_historical_import_and_server_objectives`. They require prohibited
+`completion_test.py::test_historical_import_and_server_objectives`, and
+`completion_test.py::test_historical_reported_absence_remains_historical`. They require prohibited
 private fixtures. Synthetic historical-correction tests remain selected. No assertions or
 deadlines were weakened. The old command list would have failed without private fixtures.
 
@@ -113,3 +113,13 @@ and hosted capacity, Google/HTTPS and owner rejection, hosted clock correctness,
 backup/recovery, actual-phone review, and current Yahoo contest/schedule/rules/source gates.
 The previously rejected live outage drill stays disabled. Its exact required recovery
 sequence remains in the native procedure; an unavailable endpoint does not close it.
+
+## First execution correction
+
+Run 34511464239 on snapshot d65e36c failed after native image checks and fresh migration:
+62 prior tests passed, one failed because the third historical-data test above also calls
+`prepare(client, True)`. The private data remains excluded. The corrected selection omits
+that test explicitly. Prior JUnit now writes directly to the evidence mount so a failing
+pytest command cannot skip its collection. Upload requires successful bounded collection.
+The next attempt is capped at 20 minutes (15-minute procedure), within the remaining
+57-minute task budget. The first artifact was 18,398 bytes with one-day retention.

@@ -125,12 +125,13 @@ cp -a verification/prior/. artifacts/local/prior-increment5/
 mkdir -p artifacts/local/prior-increment5/artifacts
 docker run --rm --network host -w /verify \
   --mount "type=bind,source=$PWD/artifacts/local/prior-increment5,target=/verify" \
+  --mount "type=bind,source=$PWD/artifacts/local/amd64-run,target=/evidence" \
   dfs-amd64:test-base python -m pytest server/application_test.py server/completion_test.py \
   server/decision_test.py -q \
   --deselect=server/application_test.py::test_historical_import_through_postgres \
   --deselect=server/completion_test.py::test_historical_import_and_server_objectives \
-  --junitxml=/verify/prior-synthetic.xml
-cp artifacts/local/prior-increment5/prior-synthetic.xml artifacts/local/amd64-run/
+  --deselect=server/completion_test.py::test_historical_reported_absence_remains_historical \
+  --junitxml=/evidence/prior-synthetic.xml
 
 cat > artifacts/local/amd64-run/inventory.py <<'PY'
 import hashlib, json
@@ -165,6 +166,7 @@ docker run --rm --network host -w /verify --mount "type=bind,source=$PWD,target=
   tools/amd64_evidence_test.py \
   -q --deselect=server/application_test.py::test_historical_import_through_postgres \
   --deselect=server/completion_test.py::test_historical_import_and_server_objectives \
+  --deselect=server/completion_test.py::test_historical_reported_absence_remains_historical \
   --junitxml=artifacts/local/amd64-run/regressions.xml
 
 .venv/bin/python - <<'PY'

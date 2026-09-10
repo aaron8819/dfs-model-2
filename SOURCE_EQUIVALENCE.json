@@ -1,7 +1,7 @@
 {
   "format": 1,
   "current": {
-    "source_commit": "5513c5edc87d34f10d1b822ddb93fed7b423f877",
+    "source_commit": "5b54e88ae792e4875b4d5ce34555c9463f554b81",
     "files": {
       ".dockerignore": {
         "sha256": "40957e74c696b62a19563e1cc557b4d6b2b941b74d95c812d3362fe07f4a5aaf",
@@ -12,8 +12,8 @@
         "bytes": 112
       },
       ".github/workflows/amd64-verification.yml": {
-        "sha256": "c6f075633bbf670819d5abeecc27b518cf2a669fd054aaa29d88b076b0902e9f",
-        "bytes": 1603
+        "sha256": "bcd4bc12604a30eb03b4a7f2a3bd8edbe26f8652746a3b71a859959890ada410",
+        "bytes": 1663
       },
       ".gitignore": {
         "sha256": "a4e7689f0404facf56100c9c3a92eb42af05da9d5b89de0295d1c81327efa1a5",
@@ -52,8 +52,8 @@
         "bytes": 60
       },
       "docs/AMD64_ACTIONS_HANDOFF.md": {
-        "sha256": "62fe411d08598d1df8b382bb6d95317dff339505887423d0abbab47b95fa4760",
-        "bytes": 8132
+        "sha256": "be8a4edee392d7361d48a4fe35dac855383bd9af8d1f18741c82bfecfab1f73f",
+        "bytes": 8734
       },
       "docs/AMD64_VERIFICATION_PROCEDURE.md": {
         "sha256": "7942eb5c283cca6285f945f1706030496154416989162f4d03c3ff9b3e62a6af",
@@ -236,16 +236,16 @@
         "bytes": 31714
       },
       "tools/amd64_evidence.py": {
-        "sha256": "895c721960c0e945ee71b48a2ccbf1b61fc19ec93fcb2889ad113bfeaacb056a",
-        "bytes": 6656
+        "sha256": "e53e66258b16f3581008c27ce83fd3b9b359304f0a3a38988a64d7363b95dd2c",
+        "bytes": 6668
       },
       "tools/amd64_evidence_test.py": {
         "sha256": "ef207f79a26f38b59176dddfcd2b998e34819b70ed77d20e2936684880d09ece",
         "bytes": 3781
       },
       "tools/amd64_verify.sh": {
-        "sha256": "00a098082a672cd90cb62fedccdb262bf1aa8b0e0353a0a7954ac7c4b5859dc6",
-        "bytes": 15567
+        "sha256": "60cafd097398caf918c6c9439b2821bf01d332a2d93a1a8a42ec4615a8293668",
+        "bytes": 15753
       },
       "tools/completion_demo.py": {
         "sha256": "58e30000cd932b1e2247d0eed88fc0cd678c00c0fc7b7fff99a92a6b70d8c669",
