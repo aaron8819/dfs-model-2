@@ -1,0 +1,2 @@
+# Complete compatible resolution, including runtime and focused verification tools.
+-r requirements.lock

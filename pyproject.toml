@@ -1,0 +1,23 @@
+[project]
+name = "dfs-runtime-proof"
+version = "0.1.0"
+requires-python = ">=3.12,<3.15"
+
+[tool.pytest.ini_options]
+testpaths = ["server"]
+pythonpath = ["."]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.coverage.run]
+source = ["server"]
+omit = ["*_test.py", "server/benchmark.py"]

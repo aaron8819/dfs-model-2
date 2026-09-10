@@ -1,0 +1,44 @@
+name: Native AMD64 verification
+on:
+  workflow_dispatch:
+    inputs:
+      allowance_confirmed:
+        description: Included allowance checked for this run (60 Linux minutes and 20 MiB artifact storage)
+        required: true
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: native-amd64-verification
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.repository == 'aaron8819/dfs-model-2' && github.event.repository.private && inputs.allowance_confirmed
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.13.15'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.21.0'
+      - name: Execute canonical native procedure
+        run: bash tools/amd64_verify.sh
+        timeout-minutes: 53
+      - name: Collect allowlisted diagnostics even after failure
+        if: always()
+        run: python -m tools.amd64_evidence collect
+      - name: Retain reviewed evidence for one day
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: amd64-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/local/amd64-upload/*
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 9

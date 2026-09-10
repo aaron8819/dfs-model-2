@@ -1,0 +1,3 @@
+* text=auto eol=lf
+docs/PRODUCT_BLUEPRINT.md -text -whitespace
+fixtures/private/historical/** -text -whitespace
