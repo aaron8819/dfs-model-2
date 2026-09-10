@@ -39,6 +39,23 @@ included minutes and storage covering the bounded run. See the dated official so
 action pins, snapshot policy, selection changes and resume instructions in
 [AMD64_ACTIONS_HANDOFF.md](docs/AMD64_ACTIONS_HANDOFF.md).
 
+## Pushed preparation identity
+
+Private snapshot pushed on `codex/increment-6-amd64-verification` (also its new default branch).
+Initial reviewed snapshot: [`5faf8bc4de7eee8168f3703ce01f85de4f272302`](https://github.com/aaron8819/dfs-model-2/commit/5faf8bc4de7eee8168f3703ce01f85de4f272302),
+from local executable preparation `ee5ac2317369a342e07852e49526640fc68138c4`.
+The snapshot contains 95 current files, 33 prior files and its equivalence manifest; its
+single-root reachable history was screened again: 102 unique blobs / 862,534 bytes,
+no flagged private paths, credential patterns or large blobs. Original history stayed local.
+Both source and snapshot working trees were clean after their commits/push.
+
+Collection-only checks in the exported snapshot found **175 selected current tests** and
+**63 selected prior-schema tests**, each excluding exactly the two private-data tests.
+These counts establish collection/import availability only, not test passes. No DB or
+solver workload was executed by collection. GitHub's run inventory is empty; there is no
+workflow run URL. The subsequent reporting update changes documentation and the source
+manifest only; executable preparation is the same as the initial snapshot above.
+
 ## Results and outstanding gates
 
 Native fresh migration, populated upgrade, restricted grants, API/native child/validator/
