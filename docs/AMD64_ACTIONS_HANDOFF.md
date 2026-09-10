@@ -1,6 +1,6 @@
 # Private native AMD64 Actions handoff
 
-September 10, 2026. **Prepared; no run dispatched. Native AMD64 pending. Weekly release unaccepted.**
+September 10, 2026. **Native AMD64 passed after a corrected run. Weekly release unaccepted.**
 
 ## Destination and allowance
 
@@ -67,7 +67,7 @@ against the manifest before building. Keep the manifest with downloaded evidence
 `tools/amd64_verify.sh` is the single executable version of the six original procedure
 blocks, called by `.github/workflows/amd64-verification.yml`. The workflow is dispatch-only,
 private-repository gated, `contents: read`, credential persistence disabled, immutable action
-SHAs, repository-wide concurrency without cancelling active runs, 60-minute timeout.
+SHAs, repository-wide concurrency without cancelling active runs, 20-minute job timeout (15-minute procedure) in the successful corrected attempt.
 The dispatch input is an operator attestation after checking allowance, not a billing API
 or protection against account-wide concurrent spending.
 
@@ -100,7 +100,7 @@ no database stop, pause or connectivity fault is used for cleanup or an outage d
 
 ## Resume and evidence review
 
-After the remaining included allowance is established, confirm repository privacy/default
+For a future separately authorized run, establish its remaining budget and confirm repository privacy/default
 branch and no active run, then manually dispatch `amd64-verification.yml` on the exact
 reviewed snapshot commit with `allowance_confirmed=true`. Record its run URL and commit.
 Download `amd64-evidence-<run-id>-<attempt>` immediately, inspect test records, final marker,
@@ -123,3 +123,14 @@ that test explicitly. Prior JUnit now writes directly to the evidence mount so a
 pytest command cannot skip its collection. Upload requires successful bounded collection.
 The next attempt is capped at 20 minutes (15-minute procedure), within the remaining
 57-minute task budget. The first artifact was 18,398 bytes with one-day retention.
+
+## Completed execution
+
+Successful [run 34511914132](https://github.com/aaron8819/dfs-model-2/actions/runs/34511914132)
+tested `ecf145eb6b1355b0a15933787ea266cf73c13a29` (local `5b54e88`). Actual downloaded
+artifacts, current/prior source hashes, tests, image identities and screenshots were inspected.
+62 prior and 174 current tests plus three browser scenarios passed. Two jobs together used
+525 seconds, conservatively 10 rounded Linux minutes, and retained 2,539,896 artifact bytes
+for one day. The final [report](../AMD64_VERIFICATION_REPORT.md) records measurements,
+failed attempt, correction and remaining release gates. No further runs are needed for the
+final documentation-only changes. All deployment/live identity/outage restrictions remain.

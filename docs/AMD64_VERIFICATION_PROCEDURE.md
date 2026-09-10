@@ -1,6 +1,6 @@
 # Native AMD64 verification procedure
 
-Prepared September 10, 2026. **Not executed on AMD64.** The current task authorizes a
+Prepared September 10, 2026. **Executed successfully on native AMD64:** [run 34511914132](https://github.com/aaron8819/dfs-model-2/actions/runs/34511914132). The current task authorizes a
 private GitHub Actions verification snapshot. See [Actions handoff](AMD64_ACTIONS_HANDOFF.md).
 The canonical commands now live in `tools/amd64_verify.sh`, reused from this procedure.
 Only the reviewed snapshot is pushed; its manifest records current and prior source hashes.
@@ -140,3 +140,14 @@ Keep separate gates for approved hosting/spending, hosted AMD64 load, Google cli
 and HTTPS, host clock evidence, hosted recovery/PITR, actual-device review, and current
 Yahoo contest/rules/schedule/source acceptance. Do not quote fresh prices without checking
 official dated sources. No deployment, provisioning or increment 7 follows this run. Reviewed verification commits may be pushed under the current task authorization.
+
+## September 10 execution result
+
+The complete corrected procedure passed; see [report](../AMD64_VERIFICATION_REPORT.md).
+Three private-fixture tests are explicitly deselected, including the reported-absence test
+missed in the first attempt. Prior JUnit is written directly to the evidence mount so test
+failure does not lose it. Upload runs only after successful size-bounded artifact collection.
+The successful job cap was 20 minutes, with a 15-minute procedure cap and 19 MiB per-attempt
+artifact check; total actual artifacts across both attempts were 2.42 MiB. Do not treat this
+successful task as authorization for future runs or additional spending. The outage sequence
+above remains pending and disabled. Final report-only edits did not change executable inputs.

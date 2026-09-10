@@ -41,11 +41,15 @@ stage. Only the admission lock file is writable under `/app`; child temporary fi
 Migration is a separate build target and command, never application startup. Base image identifiers
 and the tested runtime image ID are recorded in `artifacts/increment6-image-identity.json`.
 
-Verification follow-up removes Black/coverage/pytest/pytest-cov/Ruff from the runtime stage without
-changing locked dependency versions or the migration target. Its new ARM64 smoke image is recorded
-in [AMD64_VERIFICATION_REPORT.md](AMD64_VERIFICATION_REPORT.md); it is not the accepted historical
-image and has not passed native AMD64 workflow verification. Use the
-[native-machine procedure](docs/AMD64_VERIFICATION_PROCEDURE.md) before selecting a deployment digest.
+The follow-up runtime removes Black/coverage/pytest/pytest-cov/Ruff while preserving locked
+dependency versions. [Native AMD64 verification passed](AMD64_VERIFICATION_REPORT.md) on
+private Actions snapshot `ecf145e`, including actual runtime/browser/DB checks. The successful
+runtime image ID is `sha256:27993df978c58fc58c3902bdea4a048e7a198ec1312116468218b6e392b0686d`;
+it was local to the ephemeral runner and was not registry-published. Keep the proposed
+1 CPU/2 GiB sizing: native peak memory was 212.56 MiB, but GitHub CPU/network/storage do
+not establish hosted capacity. A separately authorized deployment must build/publish and
+verify its immutable image. Hosting prices and provider features were not revalidated by
+this native execution follow-up.
 
 From the repository, using a Python environment with pip:
 
@@ -61,7 +65,7 @@ readiness check and explicitly selected maintenance/migration profile for a loca
 rehearsal. Its Compose syntax was validated; live secrets/HTTPS execution remain pending. Supply
 `DFS_IMAGE` and `DFS_MIGRATION_IMAGE` as the corresponding verified immutable image digests.
 
-Neither an AMD64 image build nor AMD64 execution passed. Do not upload
+The native AMD64 build and selected execution procedure now pass in private Actions. Do not upload
 the ARM64 image: [Render requires linux/amd64](https://render.com/docs/deploying-an-image).
 For local ARM64 review substitute `arm64` in both build-context folder and platform.
 Host pip downloads were needed because Docker's direct Python package download hit a TLS handshake
@@ -69,7 +73,7 @@ failure; verification was not disabled. Wheel SHA-256 manifests are committed as
 
 ## Deployment/startup sequence (requires separate authorization)
 
-1. Confirm quote and native AMD64 acceptance. Use a private registry, immutable tested image digest,
+1. Confirm the current quote and inspect the recorded native AMD64 acceptance. Use a private registry, immutable tested image digest,
    no automatic deploys. Create paid app and PostgreSQL 17 in Ohio. Restrict DB network access.
 2. Using the provider administrative connection, create a distinct `dfs_runtime` login and a migration
    login/owner. Neither may be superuser; runtime gets no database/schema creation. Assign passwords

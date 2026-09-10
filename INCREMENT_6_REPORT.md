@@ -5,15 +5,14 @@
 No push, paid resources, external deployment, identity configuration changes or production data edits.
 No increment-7 automation. The [acceptance matrix](RELEASE_ACCEPTANCE.md) is the release authority.
 
-Follow-up: [AMD64 verification prepared; native execution pending](AMD64_VERIFICATION_REPORT.md).
-The follow-up preserves this accepted evidence and records narrow packaging/harness fixes, local
-smoke results and exact native-machine preparation. Native AMD64 and weekly acceptance remain pending.
-
-Private Actions follow-up: [bounded sanitized verification preparation](docs/AMD64_ACTIONS_HANDOFF.md).
-The current task authorizes private snapshot pushes and included-allowance verification;
-no deployment is authorized. Native execution awaits confirmation of remaining included
-minutes/storage. Original private fixture history is preserved locally and excluded from
-transport. See the updated AMD64 report for exact preparation changes and pending gates.
+Follow-up: [native AMD64 verification passed](AMD64_VERIFICATION_REPORT.md),
+[private Actions run 34511914132](https://github.com/aaron8819/dfs-model-2/actions/runs/34511914132).
+The sanitized snapshot `ecf145e` (local source `5b54e88`) passed 62 prior-schema tests,
+174 focused tests and three browser scenarios, plus actual runtime resource/interruption
+checks. One private-fixture selection defect was corrected and rerun. Total task usage
+was 8m45s (10 rounded runner minutes) and 2.42 MiB one-day artifacts. Final changes are
+documentation only. Native AMD64 is closed; weekly release and remaining hosted/live gates
+are not accepted. The original increment-6 evidence below remains historical ARM64 evidence.
 
 ## Implemented
 

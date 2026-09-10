@@ -1,82 +1,162 @@
-# Private Actions preparation complete; native AMD64 pending
+# Native AMD64 verification passed
 
-September 10, 2026. **Native AMD64: pending. Weekly release: unaccepted.**
+September 10, 2026. **Native AMD64: PASS. Weekly release: UNACCEPTED.**
+The actual private Actions artifacts were downloaded and inspected. Native image, database,
+application/solver and browser checks passed after one narrow synthetic-harness correction.
+No application portability defect was found. No deployment, paid runner, registry publication,
+Google configuration change, historical benchmark suite or live outage injection occurred.
 
-The current task authorizes private GitHub Actions verification, reviewed snapshot pushes,
-and bounded included-allowance runs. Preparation is complete, but dispatch is blocked by
-unknown remaining included Actions minutes and artifact storage. No AMD64 build/test ran,
-no run URL or tested image identity exists, and no new native resource measurements are claimed.
+## Source, destination and budget
 
-## Current follow-up
+Private personal repository: [aaron8819/dfs-model-2](https://github.com/aaron8819/dfs-model-2).
+Branch/default branch: `codex/increment-6-amd64-verification`.
+Successful [run 34511914132](https://github.com/aaron8819/dfs-model-2/actions/runs/34511914132)
+tested snapshot **`ecf145eb6b1355b0a15933787ea266cf73c13a29`**, equivalent to local source
+**`5b54e88ae792e4875b4d5ce34555c9463f554b81`** under its `SOURCE_EQUIVALENCE.json`.
+Prior code derives from `72f67ab`; its full commit and all file hashes are in that manifest.
 
-- Source started clean at accepted `bd8ff57` on `codex/increment-6-amd64-verification`;
-  ancestry passed. No unrelated working-tree changes or source remotes were present.
-- Authenticated personal account `aaron8819` was established through GitHub API metadata.
-  Created [aaron8819/dfs-model-2](https://github.com/aaron8819/dfs-model-2), verified private
-  and personally owned. The unrelated public `DFS-optimizer` was not used.
-- Original history contains private fixtures and historical artifacts. It is not eligible
-  for pushing. The separate sanitized repository uses the same verification branch as its
-  initial/default branch, with current and prior-schema code mapped by SHA-256 manifest.
-  CI and local commit identities are deliberately different. `SOURCE_EQUIVALENCE.json`
-  in the snapshot provides the exact local source commit and per-file relationship.
-- Added one canonical executable procedure, a manual-only SHA-pinned workflow, source
-  equivalence verification and allowlisted diagnostics. A job has a 60-minute maximum;
-  first-run reservation is 60 included Linux minutes plus 20 MiB included artifact storage
-  for one day. No dispatch or automatic retries occur until allowance is established.
-- Corrected two private-fixture-dependent test selections by explicit deselection only;
-  retained synthetic equivalents and all other selected tests. Added remainder preview
-  timing and fixed-slot evidence to the existing browser scenario. Product behavior,
-  production Dockerfile, dependencies, migrations, grants and solver code are unchanged.
-- Local verification: Bash syntax and embedded Python syntax, Black/Ruff, Python
-  compilation, browser TypeScript/Prettier, and three handoff safety tests passed.
-  The safety tests verify private-file exclusion, changed/extra-file rejection and removal
-  of session-bearing failure payloads from artifacts. They do not establish native execution.
+The snapshot contains 95 reviewed current files and 33 prior files plus the manifest.
+Original private history/fixtures were never pushed. CI checked every tracked snapshot
+file before building; downloaded current/prior SHA-256 and byte counts were independently
+compared with the corresponding original local Git blobs. These are different commit IDs,
+not a claim that a sanitized snapshot equals the original Git commit. Production Dockerfile,
+lockfiles, application, migrations and solver bytes did not change in this execution task.
 
-The current token cannot retrieve billing usage: HTTP 404 with an explicit missing `user`
-scope notice, and no plan value in account metadata. No scope or billing changes were made.
-The exact remaining prerequisite is confirmation of the current account's available
-included minutes and storage covering the bounded run. See the dated official sources,
-action pins, snapshot policy, selection changes and resume instructions in
-[AMD64_ACTIONS_HANDOFF.md](docs/AMD64_ACTIONS_HANDOFF.md).
+The user confirmed 2,000 included minutes and 0.5 GB included storage via the billing dashboard.
+The task's stricter total cap was 60 Linux runner minutes and 20 MiB artifacts for one day.
+Two jobs consumed 147 + 378 = **525 seconds (8m45s)**; rounding each job upward reserves
+**10 of 60 minutes**. This is a conservative task accounting figure, not a billing API reading.
+No further runs were dispatched. Artifact metadata reports **2,539,896 bytes total (2.42 MiB)**,
+one-day retention, below the 20 MiB cap. No billing settings or credential scopes changed.
 
-## Pushed preparation identity
+| Attempt | Snapshot | Job duration | Result | Artifact bytes / expiry UTC |
+| --- | --- | --- | --- | --- |
+| [34511464239](https://github.com/aaron8819/dfs-model-2/actions/runs/34511464239) | `d65e36c` | 2m27s | Native image checks pass; prior tests 62 pass / 1 fail | 18,398 / September 11 18:00:58 |
+| [34511914132](https://github.com/aaron8819/dfs-model-2/actions/runs/34511914132) | `ecf145e` | 6m18s | Full selected procedure pass | 2,521,498 / September 11 18:09:12 |
 
-Private snapshot pushed on `codex/increment-6-amd64-verification` (also its new default branch).
-Initial reviewed snapshot: [`5faf8bc4de7eee8168f3703ce01f85de4f272302`](https://github.com/aaron8819/dfs-model-2/commit/5faf8bc4de7eee8168f3703ce01f85de4f272302),
-from local executable preparation `ee5ac2317369a342e07852e49526640fc68138c4`.
-The snapshot contains 95 current files, 33 prior files and its equivalence manifest; its
-single-root reachable history was screened again: 102 unique blobs / 862,534 bytes,
-no flagged private paths, credential patterns or large blobs. Original history stayed local.
-Both source and snapshot working trees were clean after their commits/push.
+Downloaded artifacts and logs remain locally under `artifacts/local/amd64-runs/<run-id>/`.
+The successful artifact directory is `amd64-evidence-34511914132-1`. Session-bearing traces,
+raw database archives, environment dumps and raw failure payloads were not uploaded as artifacts.
+The final reporting follow-up changes **documentation and source-equivalence manifest only**;
+no executable or image input changed after the successful run.
 
-Collection-only checks in the exported snapshot found **175 selected current tests** and
-**63 selected prior-schema tests**, each excluding exactly the two private-data tests.
-These counts establish collection/import availability only, not test passes. No DB or
-solver workload was executed by collection. GitHub's run inventory is empty; there is no
-workflow run URL. The subsequent reporting update changes documentation and the source
-manifest only; executable preparation is the same as the initial snapshot above.
+## Native execution and immutable identities
 
-## Results and outstanding gates
+| Layer | Actual successful-run evidence |
+| --- | --- |
+| Runner | Standard private `ubuntu-24.04`, Ubuntu 24.04.5 LTS; image `20260907.300.1`; `RUNNER_ARCH=X64` |
+| CPU / virtualization | AMD EPYC 7763, x86_64; Microsoft hardware virtual machine |
+| Kernel / Docker daemon | `6.17.0-1022-azure`, x86_64; 2 CPUs, 8,328,302,592 bytes RAM |
+| Native gate | Runner, host, daemon and container architecture assertions pass; no registered QEMU CPU emulators |
+| Runtime | Container x86_64; Python 3.13.15; UID 10001; OR-Tools 9.15.6755 |
+| Build runtime | Node 24.21.0; exact locked Python wheels and npm dependencies; pinned Docker bases |
+| PostgreSQL | 17.11 bookworm, AMD64, separate disposable restricted-role databases |
 
-Native fresh migration, populated upgrade, restricted grants, API/native child/validator/
-Apply, interruption/restart, browser scenarios and representative resources are all pending.
-No native failed run occurred; the concrete preparation defects above were found locally.
-Historical ARM64 observations remain below for later comparison. Retain app 1 CPU/2 GiB
-and DB 0.5 CPU/1 GiB; GitHub's 2-CPU VM performance will not establish Render capacity.
+Successful runtime image ID: `sha256:27993df978c58fc58c3902bdea4a048e7a198ec1312116468218b6e392b0686d`.
+Successful migration image ID: `sha256:2e26e94814fb83cabcaff69259dc14b57acb684af4bacc0487bc84df7d0d7c9d`.
+PostgreSQL image ID: `sha256:a2ea0e68c465e0acf4c3672471b22b6b62972bb341e6f31544c855d85ba43745`;
+repository digest `postgres@sha256:051f7b7b3abdd564d5d1bd1e8c4b9c1b6e77087d1dd22020ede611c096a272e0`.
+Application/migration IDs describe local runner images, not registry-published digests.
+The ephemeral images were not exported; deployment requires a separately authorized build/publish.
 
-Live outage/reconnection remains disabled under the earlier automatic approval rejection.
-The script includes only the permitted independent unreachable-endpoint handler check;
-it cannot prove reconnection of a previously connected running app. The exact outstanding
-sequence remains in the [procedure](docs/AMD64_VERIFICATION_PROCEDURE.md).
+Base indexes remain Node `sha256:2fe369e969550cde8e867afc3fe370b260140cab4a23d467074295b42163d553`
+and Python `sha256:ed86c82274b3c69b52fb5820f358f0bd7df0b603332063cb5c6e32bd220c3e6e`.
+Resolved platform manifests, tool versions and input hashes are in `build-inputs.txt`;
+wheel hashes in `increment6-wheels-amd64.json`; installed runtime versions in
+`runtime-packages.json`. Every retained runtime dependency matches its lock version.
+Only Black, coverage, pytest, pytest-cov and Ruff are deliberately absent. No versions
+were substituted. Pip consistency, frontend contents, excluded test/fixture/migration files,
+non-root execution and migration-environment-secret exclusion passed.
 
-Separate remaining gates: native AMD64; live DB outage/reconnection; Render deployment and
-hosted capacity; Google/HTTPS and owner rejection; hosted clock correctness; hosted
-backup/recovery; actual-phone review; current Yahoo contest, schedule, rules and sources.
-No deployment, registry publication, Google configuration changes or increment 7.
+## Checks actually executed
 
-**Recommended next action:** establish at least 60 remaining included Linux Actions minutes
-and 20 MiB available included artifact storage for one day on `aaron8819`, then dispatch the
-reviewed snapshot once and inspect its downloaded evidence before updating acceptance.
+| Check | Result and downloaded evidence |
+| --- | --- |
+| Prior `0004_increment5` synthetic population | **62 passed in 48.06s**, 3 private-fixture tests deselected; `prior-synthetic.xml.json` |
+| Fresh migration and populated upgrade | Pass; 39 preexisting domain tables have identical before/after row counts and hashes; only operational_state/event added (Alembic marker changes expected). Population includes 22 raw blobs and 22 requests; `before.json`, `after.json` |
+| Focused current regressions | **174 passed in 113.53s**, 3 private-fixture tests deselected; `regressions.xml.json` |
+| Regression scope | Exact arithmetic/tiny exhaustive oracle, integer-bound validator, fixed-slot constraints, native child lifecycle, application/OIDC, completion, decisions, late swaps, clock pool/monotonicity, transactions/retries/stale Apply, and three artifact/snapshot safety tests |
+| Actual production runtime image workflow | Normal synthetic OIDC -> import/activate -> captured solve -> native child -> independent validator -> saved result -> Apply200; completion and three alternatives; `increment6-image-resources.json` |
+| Busy and concurrent reads | Concurrent solve409, ready alternatives, two authenticated reading tabs, sampled DB connections; resources and polling JSON |
+| Real child interruption and restart | Observed worker.py before SIGTERM, exit0/no OOM, restarted readiness, exact saved assignments retained; status interrupted and Apply409; no surviving child after browser checks |
+| Decision workspace browser | Pass, 12.729s, retry0; context, alternatives, Apply, Undo, entered attestation and conflict |
+| Late swaps/reconciliation browser | Pass, 15.728s, retry0; fixed slots, stale capture, remainder Apply, entered authority, reconciliation and second-tab conflict |
+| Mobile browser | Pass, 2.570s, retry0; 320/390/430 widths, keyboard/scroll, no horizontal overflow or mutation requests |
+| Production synthetic-identity rejection | Pass; explicit error in `production-rejection.txt`; normal workflow deliberately uses development identity |
+| Schema/grant negative and positive controls | Startup pass -> incompatible schema rejection -> unsafe grants rejection -> repaired startup pass; `startup-controls.txt` |
+| Runtime evidence mutation denials | raw_blob UPDATE and operational_event DELETE rejected; `grant-denials.txt` |
+| Unavailable-endpoint handler | Ready503/health200 in isolated no-network probe, not a previously connected running app; `unavailable-handler.json` |
+
+Counts are distinct within each recorded run, but prior/current suites overlap semantically;
+do not add them as unique product cases. Browser results have no skipped, flaky or retried
+tests. The decision browser records expected 401/409 console responses with no unexpected
+errors; late-swap errors are empty. Desktop remainder/reconciliation and mobile 320 lineup/
+430 briefing screenshots were visually inspected and show the intended synthetic review,
+fixed assignments and read-only controls. Actual-phone acceptance remains separate.
+
+## Representative resources and ARM64 comparison
+
+App envelope **1 CPU / 2 GiB / 128 PIDs**, one worker; each disposable DB **0.5 CPU / 1 GiB**.
+Main workload: 541 entries and 541 matched/admitted projections, similar synthetic point
+values, nine slots. The browser remainder uses a separate 13-entry synthetic pool and
+four fixed slots (RB2, WR2, TE, FLEX); it is not a 541-entry remainder benchmark.
+
+| Observation | Native AMD64 | Historical ARM64 |
+| --- | ---: | ---: |
+| Creation to readiness | 1.802s | 1.805s |
+| First completion including polling/busy checks | 5.395s | 5.372s |
+| First / repeated three alternatives | 8.897 / 8.805s | 8.784 / 7.962s |
+| Small browser remainder preview | 3.561s | Not recorded |
+| Main workload cgroup peak before restart | 148.82 MiB | 150.11 MiB |
+| Post-restart/browser cgroup peak | 212.56 MiB | Not comparable |
+| Instrumented GET mean / maximum | 0.0819 / 0.1989s (136 reads) | 0.201 / 0.376s (77 reads) |
+| Two-tab workspace+research pair | mean0.369s, range0.274-0.461s, 24 pairs | range0.326-0.756s |
+| Sampled runtime DB connections | peak4, 206 samples | peak4, 148 samples |
+| Observed-child shutdown | 0.407s, exit0, no OOM | 1.196s, exit0, no OOM |
+
+Memory is cgroup memory including parent, children and cache, not Python RSS. The later
+peak is larger than the pre-restart sample; memory.events reports zero OOM/oom_kill.
+Read sample counts/phases differ, so they do not establish a controlled speedup. Remainder
+evidence captures its exact fixed assignments; the inspected applied alternative shows
+49.25 editable points plus 40 fixed pregame points, retaining four fixed identities. The
+synthetic exhaustive fixed-slot regressions establish mathematical behavior separately.
+No live remaining-points forecast is implied. CPU throttling under the one-core quota was
+observed; no assertion/deadline/grant was relaxed. Retain proposed service sizes.
+GitHub performance does **not** prove Render CPU, networking, storage, restore or capacity.
+
+## Failure, correction and remaining gates
+
+First run failed at `test_historical_reported_absence_remains_historical`, which also calls
+`prepare(client, True)` and needs a prohibited historical fixture. The earlier two-test
+exclusion was incomplete. The corrected procedure explicitly deselects all three such
+tests; synthetic fixed/availability and historical-correction tests remain. Private fixtures
+were not uploaded and test assertions were not weakened. Prior JUnit now writes directly
+to an evidence mount even if pytest fails. Artifact upload requires successful bounded
+collection; the per-attempt collector limit is 19 MiB, leaving space for the first failure.
+The corrected complete procedure passed. No unresolved application correctness defect was
+identified within this synthetic verification scope.
+
+| Release gate | State |
+| --- | --- |
+| Native AMD64 verification | **PASS**, successful run and inspected artifacts above |
+| Live DB outage/reconnection | **PENDING / disabled** under previous automatic approval rejection |
+| Render deployment and hosted capacity | Pending; no provisioning/deployment authorized or performed |
+| Google/HTTPS and owner rejection | Pending; synthetic development OIDC is not live identity acceptance |
+| Hosted clock correctness | Pending; monotonicity regression tests do not establish correct UTC |
+| Hosted backup/recovery | Pending; this run did not establish hosted backup/PITR or restore behavior |
+| Actual-phone review | Pending; browser viewport emulation only |
+| Current Yahoo contest/schedule/rules/source acceptance | Pending; synthetic data only |
+
+The exact live outage test remains: previously connected running app, temporary database
+unavailability, bounded failures/readiness, restored connectivity without app restart,
+safe leases/idempotency/stale-result rejection, then a successful read and legitimate
+mutation. No stop/pause/network fault was injected into a database. The successful handler
+probe cannot close this gate or override its earlier approval rejection.
+
+**Recommended next action:** review the existing hosted verification/deployment proposal
+and its remaining gates before separately authorizing any provisioning. Weekly release
+remains unaccepted; no increment 7. The native procedure and Actions handoff preserve the
+bounded commands and correction for future separately budgeted verification.
 
 ---
 

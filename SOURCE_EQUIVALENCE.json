@@ -1,7 +1,7 @@
 {
   "format": 1,
   "current": {
-    "source_commit": "5b54e88ae792e4875b4d5ce34555c9463f554b81",
+    "source_commit": "ca4a46055a23962f341e968a22338dc42988744d",
     "files": {
       ".dockerignore": {
         "sha256": "40957e74c696b62a19563e1cc557b4d6b2b941b74d95c812d3362fe07f4a5aaf",
@@ -24,40 +24,40 @@
         "bytes": 8
       },
       "AMD64_VERIFICATION_REPORT.md": {
-        "sha256": "2f1ff09d50332e58a4dfeaa452d6e99a0a516c058987f335cac81dd9ad92a645",
-        "bytes": 15542
+        "sha256": "47d74c8be9be4914fc8f5cc44d96771e2897a286331b6c44d5080e0a24b3c29f",
+        "bytes": 22497
       },
       "DEPLOYMENT_PLAN.md": {
-        "sha256": "e5eb77f5e093ebd452361cfadecf84249e027d3eb6fa2ff6f5b1992244fda559",
-        "bytes": 8283
+        "sha256": "fd9af1bef4e0481e59db92b7c015e687de51068c79268b544b31c3bedf71bd40",
+        "bytes": 8632
       },
       "Dockerfile": {
         "sha256": "deddd714254337c8883bf9dc903127579b8898218a2d0d374b6a49e20b630b79",
         "bytes": 1202
       },
       "INCREMENT_6_REPORT.md": {
-        "sha256": "d2f2a071286d527bf1471da1c47b772730330af242b1746af0bccf0acd34592c",
-        "bytes": 12242
+        "sha256": "781197730833d3dca2e5cc48fbf731cca72ad95409d285643baaa5742f7fd540",
+        "bytes": 12199
       },
       "OPERATIONS_RUNBOOK.md": {
         "sha256": "1f622c5475e8007eb9ddf36695c4d12daa469879e5137c15d6fafe31289db946",
         "bytes": 9799
       },
       "RELEASE_ACCEPTANCE.md": {
-        "sha256": "57770323957dfd9508c0862a622f9c8c7226d2cfe62ccf43530f84e534f3281d",
-        "bytes": 4829
+        "sha256": "8516d17111e6bfa93992bfedbab93d970ba0bc55aa746f3694377c30cb8b32da",
+        "bytes": 5033
       },
       "alembic.ini": {
         "sha256": "ebfad8a9c8f352d2381e48df599dd04dad764ca95b03f0dc9949d0691c6d2517",
         "bytes": 60
       },
       "docs/AMD64_ACTIONS_HANDOFF.md": {
-        "sha256": "be8a4edee392d7361d48a4fe35dac855383bd9af8d1f18741c82bfecfab1f73f",
-        "bytes": 8734
+        "sha256": "a0218b63418b2cb15505d37690d4d77f38f992832c590a495ffa735551eaa3cf",
+        "bytes": 9564
       },
       "docs/AMD64_VERIFICATION_PROCEDURE.md": {
-        "sha256": "7942eb5c283cca6285f945f1706030496154416989162f4d03c3ff9b3e62a6af",
-        "bytes": 9915
+        "sha256": "6b26bd3267c3a4a5d507a9ff8405cac39da5bebb9012b7b8453b2f556633d82d",
+        "bytes": 10789
       },
       "migrations/env.py": {
         "sha256": "67ac5828a0a6fac421ce9921ec13aa5ed20c31f323d7d99409b0e1f0e4bb8c0b",
